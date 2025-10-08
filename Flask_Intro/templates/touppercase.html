@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Convert to Uppercase{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+  <div class="row align-items-start">
+    
+    <!-- Left: Form -->
+    <div class="col-md-7">
+      <h1 class="minecraft mb-3">Convert String to Uppercase</h1>
+
+      <form id="upperForm" action="{{ url_for('touppercase') }}" method="POST" novalidate>
+        <div id="formAlert" class="alert alert-danger {% if not error %}d-none{% endif %}" role="alert">
+          {% if error %}{{ error }}{% endif %}
+        </div>
+
+        <div class="mb-3">
+          <label for="inputString" class="form-label minecraft">Enter a string:</label>
+          <input type="text"
+                 id="inputString"
+                 name="inputString"
+                 class="form-control"
+                 required
+                 pattern="[A-Za-z]+"
+                 title="Only letters (A–Z) are allowed"
+                 maxlength="100"
+                 oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Convert</button>
+      </form>
+
+      {% if result %}
+        <div class="mt-2 minecraft">Converted string: {{ result }}</div>
+      {% endif %}
+
+      <a class="btn btn-sm btn-secondary minecraft mt-3" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+
+
+    <div class="col-md-5 text-center">
+      <img src="{{ url_for('static', filename='images/cat_think.png') }}"
+           alt="Uppercase Icon"
+           class="img-fluid rounded shadow mt-3"
+           style="max-height: 300px;">
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const form = document.getElementById('upperForm');
+  const input = document.getElementById('inputString');
+  const alertEl = document.getElementById('formAlert');
+
+  function showAlert(msg){
+    alertEl.textContent = msg;
+    alertEl.classList.remove('d-none');
+    clearTimeout(alertEl._hideTimer);
+    alertEl._hideTimer = setTimeout(()=> alertEl.classList.add('d-none'), 4000);
+  }
+
+  form.addEventListener('submit', function(e){
+    const val = (input.value || '').trim();
+    if (!val) {
+      e.preventDefault();
+      showAlert('Please enter a string before converting.');
+      return;
+    }
+    if (!/^[A-Za-z]+$/.test(val)) {
+      e.preventDefault();
+      showAlert('Only letters A–Z are allowed.');
+      return;
+    }
+  });
+})();
+</script>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Works{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h1 class="minecraft mb-3">Programming Works</h1>
+      <ul class="list">
+        <li class="minecraft mb-2">
+          <a class="btn btn-sm btn-secondary" href="{{ url_for('touppercase') }}">toUpperCase</a>
+        </li>
+        <li class="minecraft mb-2">
+          <a class="btn btn-sm btn-secondary" href="{{ url_for('area_circle') }}">Area of a Circle</a>
+        </li>
+        <li class="minecraft mb-3">
+          <a class="btn btn-sm btn-secondary" href="{{ url_for('area_triangle') }}">Area of a Triangle</a>
+        </li>
+      </ul>
+      <a class="btn btn-sm btn-secondary minecraft" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="{{ url_for('static', filename='images/smiley.png') }}" alt="Programming Works" class="img-fluid rounded shadow-lg" style="max-width: 90%;">
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,39 +1,64 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-  <h1 class="minecraft text-center">Welcome to Our Website</h1>
-  <p class="minecraft text-center">Instruction: create a route and a page for the links that are not working.</p>
 
-  <!-- image links (place the images in static/images/) -->
-  <div class="row gy-3">
-    <div class="col-12 col-md-4 text-center">
+<div class="container mt-5">
+  <h1 class="minecraft text-center mb-3">Welcome to Our Website</h1>
+  <p class="minecraft text-center mb-5">
+    Instruction: Create a route and a page for the links that are not yet working.
+  </p>
+
+  <div class="row gy-4 text-center justify-content-center">
+
+    <div class="col-6 col-md-3">
       <a href="{{ url_for('touppercase') }}" class="text-decoration-none d-block mb-2">
-        <img src="{{ url_for('static', filename='images/monkey.png') }}"
+        <img src="{{ url_for('static', filename='images/monkey.png') }}" 
              alt="toUpperCase"
-             class="img-fluid rounded mb-2"
-             style="max-height:120px; object-fit:cover;">
+             class="img-fluid rounded shadow-sm mb-2"
+             style="max-height:150px; object-fit:contain;">
       </a>
-      <a href="{{ url_for('touppercase') }}" class="btn btn-sm btn-primary minecraft mt-2">Open toUpperCase</a>
-    </div>
-    
-   <div class="col-12 col-md-4 text-center">
-      <a href="{{ url_for('area_circle') }}" class="text-decoration-none d-block mb-2">
-        <img src="{{ url_for('static', filename='images/sirkol.png') }}"
-             alt="Area of a Circle"
-             class="img-fluid rounded mb-2"
-             style="max-height:120px; object-fit:cover;">
+      <a href="{{ url_for('touppercase') }}" class="btn btn-sm btn-primary minecraft mt-2 w-100">
+        Open toUpperCase
       </a>
-      <a href="{{ url_for('area_circle') }}" class="btn btn-sm btn-success minecraft mt-2">Calculate Circle</a>
     </div>
 
-    <div class="col-12 col-md-4 text-center">
-      <a href="{{ url_for('area_triangle') }}" class="text-decoration-none d-block mb-2">
-        <img src="{{ url_for('static', filename='images/triangol.png') }}"
-             alt="Area of a Triangle"
-             class="img-fluid rounded mb-2"
-             style="max-height:120px; object-fit:cover;">
+    <div class="col-6 col-md-3">
+      <a href="{{ url_for('area_circle') }}" class="text-decoration-none d-block mb-2">
+        <img src="{{ url_for('static', filename='images/sirkol.png') }}" 
+             alt="Area of a Circle"
+             class="img-fluid rounded shadow-sm mb-2"
+             style="max-height:150px; object-fit:contain;">
       </a>
-      <a href="{{ url_for('area_triangle') }}" class="btn btn-sm btn-warning minecraft mt-2">Calculate Triangle</a>
+      <a href="{{ url_for('area_circle') }}" class="btn btn-sm btn-success minecraft mt-2 w-100">
+        Calculate Circle
+      </a>
     </div>
+
+    <div class="col-6 col-md-3">
+      <a href="{{ url_for('area_triangle') }}" class="text-decoration-none d-block mb-2">
+        <img src="{{ url_for('static', filename='images/triangol.png') }}" 
+             alt="Area of a Triangle"
+             class="img-fluid rounded shadow-sm mb-2"
+             style="max-height:150px; object-fit:contain;">
+      </a>
+      <a href="{{ url_for('area_triangle') }}" class="btn btn-sm btn-warning minecraft mt-2 w-100">
+        Calculate Triangle
+      </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <a href="{{ url_for('linked_list') }}" class="text-decoration-none d-block mb-2">
+        <img src="{{ url_for('static', filename='images/lit.png') }}" 
+             alt="Linked List"
+             class="img-fluid rounded shadow-sm mb-2"
+             style="max-height:150px; object-fit:contain;">
+      </a>
+      <a href="{{ url_for('linked_list') }}" class="btn btn-sm btn-info minecraft mt-2 w-100">
+        Make a List
+      </a>
+    </div>
+
   </div>
+</div>
+
 {% endblock %}

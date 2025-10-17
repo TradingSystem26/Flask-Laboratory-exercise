@@ -1,56 +1,53 @@
 {% extends 'base.html' %}
 {% block title %}Contact{% endblock %}
 {% block content %}
-  <h1 class="minecraft text-center">Contact</h1>
 
-  <!-- banner -->
-  <img src="{{ url_for('static', filename='images/cat_contacts.png') }}"
-       alt="Contact banner"
-       class="img-fluid rounded mb-4 d-block mx-auto"
-       style="max-width:720px;">
+<div class="container mt-3">
+  <h1 class="minecraft text-center mb-4">Contact</h1>
 
-  <div class="row align-items-center gy-3">
-    <!-- avatar -->
-    <div class="col-auto text-center">
+  <div class="row align-items-start justify-content-center gy-3">
+
+    <div class="col-md-6 text-center">
       <img src="{{ url_for('static', filename='images/miport.png') }}"
            alt="Site owner avatar"
-           class="rounded-circle border avatar-lg"
+           class="rounded-circle border shadow-sm mb-3"
            style="object-fit: cover; width:128px; height:128px;">
-    </div>
 
-    <!-- contact details with small icons -->
-    <div class="col">
       <ul class="list-unstyled mb-0">
-        <li class="mb-2">
-          <img src="{{ url_for('static', filename='images/gmaillogo.png') }}" alt="" style="width:20px; height:20px;" class="me-2 align-middle">
-          <span class="minecraft">Email:</span>
-          <a class="minecraft" href="adrianian.penalosa@email.com">adrianian.penalosa@email.com</a>
+        <li class="mb-3 d-flex align-items-center justify-content-center">
+          <img src="{{ url_for('static', filename='images/gmaillogo.png') }}"
+               alt="Email Icon" style="width:22px; height:22px;" class="me-2">
+          <span class="minecraft me-1">Email:</span>
+          <a href="mailto:adrianian.penalosa@email.com" class="minecraft text-decoration-none">
+            adrianian.penalosa@email.com
+          </a>
         </li>
-        <li class="mb-2">
-          <img src="{{ url_for('static', filename='images/phone.png') }}" alt="" style="width:20px; height:20px;" class="me-2 align-middle">
-          <span class="minecraft">Phone:</span>
-          <a class="minecraft" href="tel:+639608329984">+63 960 832 9984</a>
+
+        <li class="mb-3 d-flex align-items-center justify-content-center">
+          <img src="{{ url_for('static', filename='images/phone.png') }}"
+               alt="Phone Icon" style="width:22px; height:22px;" class="me-2">
+          <span class="minecraft me-1">Phone:</span>
+          <a href="tel:+639608329984" class="minecraft text-decoration-none">
+            +63 960 832 9984
+          </a>
         </li>
-        <li class="mb-2">
-          <img src="{{ url_for('static', filename='images/maps.png') }}" alt="" style="width:20px; height:20px;" class="me-2 align-middle">
-          <span class="minecraft">Address:</span>
-          <span class="minecraft">34 Lourdes Street, Pasay City, Philippines</span>
+
+        <li class="mb-3 d-flex align-items-center justify-content-center">
+          <img src="{{ url_for('static', filename='images/maps.png') }}"
+               alt="Address Icon" style="width:22px; height:22px;" class="me-2">
+          <span class="minecraft me-1">Address:</span>
+          <a href="https://maps.app.goo.gl/Hw8SJG35pX4P1DKR7" target="_blank" class="minecraft text-decoration-none">
+            34 Lourdes Street, Pasay City, Philippines
         </li>
       </ul>
+
+      <div class="mt-4">
+        <a class="btn btn-sm btn-secondary minecraft" href="{{ url_for('home') }}">
+          Back to Home
+        </a>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- optional map thumbnail that links to Google Maps -->
-  <div class="mt-3 text-center">
-    <a href="https://www.google.com/maps/place/34+Lourdes,+Pasay+City,+Kalakhang+Maynila/@14.5554567,120.9901306,19z/data=!3m1!4b1!4m6!3m5!1s0x3397c963021a87c3:0xb6379845b0cb1d9b!8m2!3d14.5554554!4d120.9907743!16s%2Fg%2F11kqgsnrng?entry=ttu&g_ep=EgoyMDI1MTAwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-      <img src="{{ url_for('static', filename='images/map.png') }}"
-           alt="Map to location"
-           class="img-fluid rounded"
-           style="max-width:480px;">
-    </a>
-  </div>
-
-  <div class="mt-3 text-center">
-    <a class="btn btn-sm btn-secondary minecraft" href="{{ url_for('home') }}">Back to Home</a>
-  </div>
 {% endblock %}

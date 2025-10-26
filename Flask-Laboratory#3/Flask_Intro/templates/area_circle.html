@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Area of a Circle{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+  <div class="row align-items-start">
+
+    <!-- Left: Form -->
+    <div class="col-md-7">
+      <h1 class="minecraft mb-3">Compute Area of Circle</h1>
+
+      <form method="POST" action="{{ url_for('area_circle') }}" id="circleForm" novalidate>
+        <div id="formAlert" class="alert alert-danger d-none" role="alert"></div>
+
+        <div class="mb-3">
+          <label for="radius" class="form-label minecraft">Radius</label>
+          <input type="number" id="radius" name="radius" class="form-control" step="any" min="0" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary minecraft">Calculate</button>
+      </form>
+
+      {% if area is not none %}
+        <p class="minecraft mt-3">Area: {{ '%.2f'|format(area) }}</p>
+      {% endif %}
+
+      <a class="btn btn-sm btn-secondary minecraft mt-3" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="col-md-5 text-center">
+      <img src="{{ url_for('static', filename='images/orange.png') }}"
+           alt="Circle Image"
+           class="img-fluid rounded shadow mt-3"
+           style="max-height: 300px;">
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const form = document.getElementById('circleForm');
+  const radiusInput = document.getElementById('radius');
+  const alertEl = document.getElementById('formAlert');
+
+  function showAlert(msg){
+    alertEl.textContent = msg;
+    alertEl.classList.remove('d-none');
+    clearTimeout(alertEl._hideTimer);
+    alertEl._hideTimer = setTimeout(()=> alertEl.classList.add('d-none'), 4000);
+  }
+
+  form.addEventListener('submit', function(e){
+    const radiusVal = (radiusInput.value || '').trim();
+    if (!radiusVal) {
+      e.preventDefault();
+      showAlert('Please enter the radius before calculating.');
+      radiusInput.focus();
+      return;
+    }
+    const r = parseFloat(radiusVal);
+    if (!isFinite(r) || r < 0) {
+      e.preventDefault();
+      showAlert('Please enter a valid non-negative number for radius.');
+      radiusInput.focus();
+      return;
+    }
+  });
+})();
+</script>
+
+{% endblock %}

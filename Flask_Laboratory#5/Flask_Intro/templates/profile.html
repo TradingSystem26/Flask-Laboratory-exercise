@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+  <div class="row align-items-center">
+    
+    <div class="col-md-7">
+      <h1 class="minecraft mb-3">Profile Page</h1>
+      <p class="minecraft">
+        Welcome to my profile section of this Flask-powered utility website.
+        This site provides a collection of simple yet functional web tools designed to perform 
+        basic text and numeric operations such as converting strings to uppercase and
+        computing geometric areas such as Circles and Triangles and Lists! Not to mention Our Infix to Postfix Converter!
+      </p>
+
+      <p class="minecraft">
+        The purpose of this website is to demonstrate clean integration between Python back-end 
+        logic and a responsive Bootstrap front-end, showing how data can move dynamically 
+        between user input, Flask routes, and displayed results.  
+      </p>
+
+      <p class="minecraft">
+        Each page in this project represents a separate feature, helping users explore 
+        how modular web applications are structured while keeping usability simple and direct.
+      </p>
+
+      <a class="btn btn-sm btn-secondary minecraft mt-3" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+
+    <div class="col-md-5 text-center">
+      <img src="{{ url_for('static', filename='images/bayola.png') }}"
+          alt="Profile Illustration"
+          class="img-fluid rounded shadow mt-3"
+          style="width: 100%; max-width: 500px; height: auto;">
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
